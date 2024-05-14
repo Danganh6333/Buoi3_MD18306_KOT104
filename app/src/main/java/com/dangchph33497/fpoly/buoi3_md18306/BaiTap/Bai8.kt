@@ -38,7 +38,6 @@ fun addTheMuon(listTheMuon : MutableList<TheMuon>){
     var ngayMuon: String?
     var hanTra: String?
     var soHieuSach: String?
-    var checkNgay : String = "(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[1,2])\\/(19|20)\\d{2}"
     println("Thêm Thông Tin Thẻ Mượn")
     println("------------------------")
     println("Nhập họ tên sinh viên")
@@ -67,7 +66,7 @@ fun addTheMuon(listTheMuon : MutableList<TheMuon>){
     if (tuoi == null ) {
         println("Tuổi không hợp lệ")
         return
-    }else if (tuoi >= 18 || tuoi <= 25) {
+    }else if (tuoi <= 18 || tuoi >= 25) {
         println("Tuổi phải từ 18 đến 25")
         return
     }

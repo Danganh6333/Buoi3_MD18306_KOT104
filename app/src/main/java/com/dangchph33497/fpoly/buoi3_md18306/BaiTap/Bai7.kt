@@ -20,7 +20,7 @@ fun deleteCBGV(listCBGV : MutableList<CBGV>){
     println("Nhập Mã Cán Bộ Giáo Viên Cần Xóa")
     maSoGiaoVien = readLine().toString()
     for (i in listCBGV.indices) {
-        if (listCBGV[i].maSoGiaoVien == maSoGiaoVien) {
+        if (listCBGV[i].msgv == maSoGiaoVien) {
             listCBGV.removeAt(i)
             println("Xóa giáo viên với mã số giáo viên $maSoGiaoVien thành công")
             getCBGV(listCBGV)
@@ -34,27 +34,27 @@ fun addCBGV(listCBGV : MutableList<CBGV>){
     var hoTen : String?
     var tuoi : Int?
     var queQuan : String?
-    var luongCung : Int?
-    var tienPhat : Int?
-    var tienThuong : Int?
+    var luongCung : Float
+    var tienPhat : Float?
+    var tienThuong : Float?
     println("Thêm Thông Tin Cán Bộ Giáo Viên")
     println("------------------------")
     println("Nhập Mã Cán Bộ Giáo Viên")
-    maSoGiaoVien = readLine().toString()
+    maSoGiaoVien = readln().toString()
     println("Nhập Họ Tên Cán Bộ Giáo Viên")
-    hoTen = readLine().toString()
+    hoTen = readln().toString()
     println("Nhập Tuổi Cán Bộ Giáo Viên")
-    tuoi = readLine()?.toIntOrNull()
+    tuoi = readln()?.toIntOrNull()
     println("Nhập Quê Quán Cán Bộ Giáo Viên")
-    queQuan = readLine().toString()
+    queQuan = readln().toString()
     println("Nhập Lương Cung Cán Bộ Giáo Viên")
-    luongCung = readLine()!!.toIntOrNull()
+    luongCung = readln().toFloat()
     println("Nhập Tiền Phạt Cán Bộ Giáo Viên")
-    tienPhat = readLine()!!.toIntOrNull()
+    tienPhat = readln()!!.toFloatOrNull()
     println("Nhập Tiền Thuong Cán Bộ Giáo Viên")
-    tienThuong = readLine()!!.toIntOrNull()
+    tienThuong = readln()!!.toFloatOrNull()
 
-    val cbgv = CBGV(maSoGiaoVien,hoTen,tuoi,queQuan,luongCung!!,tienThuong!!,tienPhat!!)
+    val cbgv = CBGV(hoTen,tuoi,queQuan, maSoGiaoVien,luongCung, tienThuong!!,tienPhat!!)
     listCBGV.add(cbgv)
     println("Thêm cán bộ giáo viên thành công")
     getCBGV(listCBGV)
@@ -70,8 +70,8 @@ fun getCBGV(listCBGV : MutableList<CBGV>){
 }
 fun main () {
     val listCBGV = mutableListOf<CBGV>()
-    listCBGV.add(CBGV("PH33487","Huy",20,"Hà Nội",20000,10000,5000))
-    listCBGV.add(CBGV("PH33489","Nam",23,"Hà Nội",70000,20000,9000))
+    listCBGV.add(CBGV("PH33487",15,"Nghệ An","PH5563",3000f ,10000f,5000f))
+    listCBGV.add(CBGV("PH33489",12,"Hà Nội","PH422",70000f,20000f,9000f))
     while (true) {
         println("Mời nhập lựa chọn của bạn")
         println("0. Thoát chương trình")

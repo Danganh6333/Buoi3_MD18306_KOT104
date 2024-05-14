@@ -1,32 +1,12 @@
 package com.dangchph33497.fpoly.buoi3_md18306.BaiTap
 
-class CBGV(
-    maSoGiaoVien:String?,
-    hoTen: String?,
-    tuoi: Int?,
-    queQuan: String?,
-    luongCung: Int,
-    tienPhat: Int,
-    tienThuong: Int,
-) : Nguoi(maSoGiaoVien,hoTen, tuoi, queQuan) {
+class CBGV (hoten: String, tuoi: Int?, quequan: String?, var msgv: String, var luongcung: Float, var lthuong: Float?, var lphat: Float?)
+    : Nguoi(hoten, tuoi, quequan) {
 
-    var luongCung: Int = luongCung
-    var tienPhat: Int = tienPhat
-    var tienThuong: Int = tienThuong
+    var lThucLinh : Float = 0f
+        get() = luongcung + (lthuong?:0f) - (lphat?:0f)
 
-    fun getThongTin(): String {
-        return """""hoTen=$hoTen - tuoi=$tuoi - queQuan =$queQuan - maSoGiaoVien = $maSoGiaoVien 
-            |- luongCung = $luongCung - tienPhat = $tienPhat - luongThucLinh = ${tinhLuongThuc()}- 
-            |tienThuong = $tienThuong""""".trimMargin()
+    override fun getThongTin(): String {
+        return "CGBV: ${super.getThongTin()} - MSGV: $msgv - Luong Thuc Linh: $lThucLinh"
     }
-
-    fun tinhLuongThuc(): Int {
-        return luongCung + tienPhat + tienThuong
-    }
-
-    override fun toString(): String {
-        return "CBGV(luongCung=$luongCung, tienPhat=$tienPhat, tienThuong=$tienThuong, luongThucLinh=${tinhLuongThuc()})"
-    }
-
-
 }
